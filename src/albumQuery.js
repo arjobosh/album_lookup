@@ -41,10 +41,12 @@ const albumQuery = (() => {
       trackRow.className = 'track-row';
   
       let trackNum = document.createElement('td');
+      trackNum.className = 'track-num';
       trackNum.textContent = `${i + 1}.`;
       trackRow.appendChild(trackNum);
   
       let trackTitle = document.createElement('td');
+      trackTitle.className = 'track-title';
       trackTitle.textContent = `${trackList[i]}`;
       trackRow.appendChild(trackTitle);
   

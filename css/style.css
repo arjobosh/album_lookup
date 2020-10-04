@@ -3,7 +3,7 @@
 }
 
 html, body, p, header, span, 
-a, table, label, input,
+a, table, tr, td, label, input,
 h1, h2, h3, h4, h5, h6, ul, li {
   margin: 0;
   padding: 0;
@@ -15,26 +15,50 @@ html {
   overflow: scroll;
 }
 
+table {
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+input, button {
+  padding: 3px 5px;
+  height: 24px;
+}
+
 span {
   display: block;
+}
+
+label {
+  font-size: 1.2em;
 }
 
 .search-container, .album-card {
   width: 60vw;
   margin: 10px auto;
+  padding: 10px;
+  background-color: antiquewhite;
+  border-bottom: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+}
+
+.search-container {
+  
 }
 
 .search-container h1 {
-  font-size: 1.5em;
+  font-size: 1.7em;
   font-weight: 700;
-  margin: 10px auto;
+  margin: 10px 0;
 }
 
-.search-container label {
-  font-size: 1.25em;
+.album-card span {
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .album-card span:hover {
   cursor: pointer;
   color: gray;
 }
+

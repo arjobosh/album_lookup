@@ -4,12 +4,12 @@ let go = document.getElementById('go-btn');
 let albumsContainer = albumQuery.getAlbumsContainer();
 
 go.addEventListener('click', function () {
-  
   let yearTextbox = document.getElementById('year');
 
   albumQuery.clearContainer(albumsContainer);
 
   requestAlbums(yearTextbox.value);
+  
 });
 
 function requestAlbums(year) {
