@@ -4,8 +4,12 @@ let albumsContainer = document.getElementById('albums-container');
 
 let btn = document.getElementById('btn');
 
+function clearContainer(element) {
+  element.innerHTML = '';
+}
+
 btn.addEventListener('click', function () {
-  albumsContainer.innerHTML = '';
+  clearContainer(albumsContainer);  
   let yearTextbox = document.getElementById('year');
 
   let albumsRequest = new XMLHttpRequest();
@@ -14,10 +18,20 @@ btn.addEventListener('click', function () {
   albumsRequest.open('GET', `https://arjobosh.github.io/json/albums/${yearTextbox.value}.json`);
 
   // once the data is loaded
-  albumsRequest.onload = function () {
-    // defaultly returns as a string, so parse to return as json
-    let albumData = JSON.parse(albumsRequest.responseText);
-    renderAlbumCard(albumData);
+  albumsRequest.onload = function() {
+    if (albumsRequest.status >= 200 && albumsRequest.status < 400) {
+      // defaultly returns as a string, so parse to return as json
+      let albumData = JSON.parse(albumsRequest.responseText);
+
+      renderAlbumCard(albumData);
+    }
+    else {
+      alert('no json file for that year!');
+    }
+  };
+
+  albumsRequest.onerror = function() {
+    alert('connection error');
   };
 
   // send the request
