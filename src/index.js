@@ -1,15 +1,14 @@
-import { albumQuery } from './albumQuery';
+import { albumElements } from './albumElements';
 
 let go = document.getElementById('go-btn');
-let albumsContainer = albumQuery.getAlbumsContainer();
+let albumsContainer = albumElements.getAlbumsContainer();
 
 go.addEventListener('click', function () {
   let yearTextbox = document.getElementById('year');
 
-  albumQuery.clearContainer(albumsContainer);
+  albumElements.clearContainer(albumsContainer);
 
   requestAlbums(yearTextbox.value);
-  
 });
 
 function requestAlbums(year) {
@@ -24,7 +23,7 @@ function requestAlbums(year) {
       // defaultly returns as a string, so parse to return as json
       let albumData = JSON.parse(albumsRequest.responseText);
 
-      albumQuery.makeAlbumCards(albumData).forEach(element => {
+      albumElements.makeAlbumCards(albumData).forEach(element => {
         albumsContainer.appendChild(element);
       });
     }
@@ -40,3 +39,5 @@ function requestAlbums(year) {
   // send the request
   albumsRequest.send();
 }
+
+// ---

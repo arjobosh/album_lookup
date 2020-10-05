@@ -1,6 +1,6 @@
-const albumQuery = (() => {
+const albumElements = (() => {
   const getAlbumsContainer = () => {
-    return document.getElementById('albums-container');
+    return document.querySelector('.albums-container');
   }
   
   // returns album cards as an array of div elements
@@ -71,8 +71,8 @@ const albumQuery = (() => {
   }
 
   return {
-    getAlbumsContainer, makeAlbumCards, clearContainer   
+    getAlbumsContainer, makeAlbumCards, clearContainer
   }
 })();
 
-export { albumQuery };
+export { albumElements };
